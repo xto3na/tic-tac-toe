@@ -1,7 +1,7 @@
 @import "../../scss/meta/variables";
 
 :host {
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
   }
 }
@@ -10,19 +10,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
     margin: auto;
   }
 }
 .menu-item {
-  @media screen and (max-width: 400px) {
-    width: 50%;
-    a {
-      width: 100%;
-      text-align: center;
-    }
-  }
   a {
     height: 70px;
     display: inline-block;
@@ -33,6 +26,14 @@
     transition: background-color .3s;
     &.active, &:hover {
       background: $blue-dark;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    width: 33.3333%;
+    a {
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
     }
   }
 }

@@ -1,0 +1,23 @@
+@import "../../scss/meta/variables";
+
+h2, p {
+  text-align: center;
+  color: $violet-dark;
+}
+h2 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+p {
+  font-size: 20px;
+}
+a {
+  color: $green-dark;
+  &:focus, &:active, &:visited {
+    color: $green-dark;
+  }
+  &:hover {
+    color: $green;
+  }
+}
