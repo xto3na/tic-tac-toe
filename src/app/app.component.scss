@@ -1,5 +1,11 @@
+@import "../scss/meta/variables";
+
 :host {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  max-width: 1140px;
+  background: $bg-color-light;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

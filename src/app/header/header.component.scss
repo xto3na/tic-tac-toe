@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: #fff;
+  line-height: 70px;
+  margin: 0;
+  padding: 0 15px;
+}
