@@ -1,0 +1,21 @@
+@import "../../scss/meta/variables";
+
+p {
+  font: 400 20px/1.5 $main-font;
+  color: $violet-dark;
+  text-align: center;
+  padding: 0 15px;
+  @media screen and (max-width: 400px) {
+    font-size: 16px;
+    text-align: justify;
+  }
+}
+a {
+  color: $green-dark;
+  &:focus, &:active, &:visited {
+    color: $green-dark;
+  }
+  &:hover {
+    color: $green;
+  }
+}

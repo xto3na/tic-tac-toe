@@ -1,8 +1,8 @@
 <nav class="main-menu">
   <div class="menu-item">
-    <a routerLink="/" routerLinkActive="active">К игре</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">К игре</a>
   </div>
   <div class="menu-item">
-    <a routerLink="/about">О проекте</a>
+    <a routerLink="/about" routerLinkActive="active">О проекте</a>
   </div>
 </nav>

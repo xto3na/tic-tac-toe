@@ -1,0 +1,13 @@
+@import "../../scss/meta/variables";
+
+h2, p {
+  text-align: center;
+  color: $violet-dark;
+}
+h2 {
+  font-size: 48px;
+  margin-top: 0;
+}
+p {
+  font-size: 20px;
+}

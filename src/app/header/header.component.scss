@@ -3,10 +3,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .logo {
   color: #fff;
+  font-size: 28px;
   line-height: 70px;
   margin: 0;
   padding: 0 15px;
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    text-align: center;
+  }
 }

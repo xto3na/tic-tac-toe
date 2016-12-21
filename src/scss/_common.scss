@@ -9,6 +9,11 @@ body {
   box-sizing: border-box;
 }
 .main-header {
-  height: 70px;
+  min-height: 70px;
   background: $blue;
+}
+.main-footer {
+  height: 70px;
+  background: $violet;
+  
 }
