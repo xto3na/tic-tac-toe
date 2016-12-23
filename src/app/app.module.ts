@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
+import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { HeaderComponent } from './header/header.component';
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   }
 ];
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,18 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    ToastModule.forRoot({
+      animate: 'flyRight',
+      positionClass: 'toast-top-center',
+      toastLife: 3000,
+      showCloseButton: false,
+      maxShown: 5,
+      newestOnTop: true,
+      enableHTML: true,
+      dismiss: 'auto',
+      messageClass: "",
+      titleClass: ""
+    }),
   ],
   providers: [{
     provide: LocationStrategy,

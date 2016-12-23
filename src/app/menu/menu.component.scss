@@ -20,12 +20,13 @@
     height: 70px;
     display: inline-block;
     padding: 0 15px;
-    color: $yellow;
+    color: #fff;
     text-decoration: none;
     font: 600 18px/70px $main-font;
-    transition: background-color .3s;
+    transition: all .3s;
     &.active, &:hover {
       background: $blue-dark;
+      color: $yellow;
     }
   }
   @media screen and (max-width: 500px) {

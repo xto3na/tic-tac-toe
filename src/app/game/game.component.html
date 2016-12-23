@@ -1,3 +1,38 @@
-<p>
-  game works!
+<p class="choose-txt">
+  Выберите, пожалуйста, игровой символ:
+  <span class="symbol-icon cross-icon" *ngIf="playerSymbol === 'CROSS'"></span>
+  <span class="symbol-icon nought-icon" *ngIf="playerSymbol === 'NOUGHT'"></span>
 </p>
+<div class="symbol-btns">
+  <button
+    type="button"
+    class="btn symbol-btn cross"
+    (click)="choosePlayerSymbol('CROSS')"
+    [disabled]="inProcess">Крестик</button>
+  <button
+    type="button"
+    class="btn symbol-btn nought"
+    (click)="choosePlayerSymbol('NOUGHT')"
+    [disabled]="inProcess">Нолик</button>
+  <button
+    class="btn start-btn"
+    *ngIf="!inProcess"
+    (click)="startGame()">Начать игру</button>
+  <button
+    class="btn reset-btn"
+    *ngIf="inProcess"
+    (click)="resetGame()">Сбросить игру</button>
+</div>
+
+<div class="game-field" [ngClass]="{'disabled': !inProcess}">
+  <div class="row" *ngFor="let row of rows; let i = index;">
+    <div class="cell" *ngFor="let cell of cells[i]; let j = index;">
+      <button
+        class="cell-btn"
+        type="button"
+        (click)="move(i, j)"
+        [disabled]="!cell.enabled"
+        [ngClass]="{'cross': cell.symbol === 'CROSS', 'nought': cell.symbol === 'NOUGHT'}"></button>
+    </div>
+  </div>
+</div>

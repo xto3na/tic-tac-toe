@@ -1,0 +1,151 @@
+@import "../../scss/meta/variables";
+
+.game-field {
+  width: 254px;
+  height: 254px;
+  border: 2px solid $yellow;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  &.disabled {
+    position: relative;
+    &:after {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      content: '';
+      width: 254px;
+      height: 254px;
+      background: transparent;
+      z-index: 10;
+    }
+  }
+}
+.row {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid $yellow;
+  cursor: pointer;
+}
+.cell-btn {
+  position: relative;
+  display: block;
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background: $green;
+  }
+  &[disabled] {
+    cursor: default;
+    &:hover {
+      background: $bg-color-light;
+    }
+  }
+  &.cross {
+    &:before, &:after {
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      top: 22px;
+      left: 4px;
+      content: '';
+      background: $green;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  &.nought {
+    &:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      content: '';
+      border: 3px solid $violet;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+.choose-txt, .symbol-btns, .start-blk {
+  text-align: center;
+  color: $violet-dark;
+}
+.start-btn {
+  background: $green;
+  color: $blue-dark;
+  &:hover {
+    background: $green-dark;
+    color: #fff;
+  }
+}
+.reset-btn {
+  background: $yellow;
+  &:hover {
+    background: $yellow-dark;
+  }
+}
+
+.choose-txt {
+  font-size: 20px;
+}
+.symbol-icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: -4px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $green;
+  &.cross-icon {
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 9px;
+      width: 16px;
+      height: 1px;
+      background: $yellow;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  &.nought-icon {
+    &:before {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      content: '';
+      width: 10px;
+      height: 10px;
+      border: 1px solid $yellow;
+      border-radius: 50%;
+    }
+  }
+}
+.symbol-btns {
+  margin-bottom: 10px;
+}

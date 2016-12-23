@@ -1,0 +1,21 @@
+.btn {
+  height: 45px;
+  cursor: pointer;
+  background: $blue;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 45px;
+  padding: 0 15px;
+  color: #fff;
+  &:hover {
+    background: $blue-dark;
+  }
+  &:focus {
+    outline: none;
+  }
+  &[disabled] {
+    background: $bg-color;
+    cursor: default;
+  }
+}
