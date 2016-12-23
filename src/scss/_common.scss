@@ -12,6 +12,9 @@ body {
   min-height: 70px;
   background: $blue;
 }
+.main-content {
+  min-height: calc(100vh - 210px);
+}
 .main-footer {
   height: 70px;
   background: $violet;
