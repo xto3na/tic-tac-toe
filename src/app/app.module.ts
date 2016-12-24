@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-import {ToastModule, ToastOptions} from 'ng2-toastr/ng2-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { HeaderComponent } from './header/header.component';

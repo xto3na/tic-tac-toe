@@ -1,16 +1,13 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import {ToastsManager, Toast} from 'ng2-toastr/ng2-toastr';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Cell } from "../cell";
 import { Line } from "../line";
-
-
 
 @Component({
 	selector: 'app-game',
 	templateUrl: './game.component.html',
 	styleUrls: ['./game.component.scss']
 })
-
 
 export class GameComponent implements OnInit {
 	
@@ -20,7 +17,7 @@ export class GameComponent implements OnInit {
 	rows: number[];
 	choosenBtnsEnabled:boolean = true;
 	inProcess:boolean = false;
-	lines:Line[] = new Array<Line>();
+	lines:Line[] = [];
 	priorityLineIndex:number = 0;
 	
 	constructor(public toastr: ToastsManager, vRef: ViewContainerRef) {
@@ -33,7 +30,7 @@ export class GameComponent implements OnInit {
 	// Initialize array with cells
 	initializeCells() {
 		let index:number = 1;
-		this.rows = new Array(1,2,3,4,5);
+		this.rows = [1,2,3,4,5];
 		this.cells = [];
 		for(let i=0; i<5;i++) {
 			this.cells[i] = [];
@@ -49,12 +46,12 @@ export class GameComponent implements OnInit {
 	}
 	
 	initializeLines() {
-		this.lines = new Array<Line>();
-		var c = this.cells;
+		this.lines = [];
+		let c = this.cells;
 		
 		// Line 1-5
 		for(let i=0;i<5;i++) {
-			let c1:Cell[] = new Array<Cell>();
+			let c1:Cell[] = [];
 			for(let j=0;j<5;j++) {
 				c1.push(c[i][j]);
 			}
@@ -67,7 +64,7 @@ export class GameComponent implements OnInit {
 		// Line 6-10
 		let lineIndex = 5;
 		for(let i=0; i<5; i++) {
-			let c1:Cell[] = new Array<Cell>();
+			let c1:Cell[] = [];
 			for(let j=0;j<5;j++) {
 				c1.push(c[j][i]);
 			}
@@ -79,7 +76,7 @@ export class GameComponent implements OnInit {
 		}
 		
 		// Line 11
-		let lc11 = new Array<Cell>();
+		let lc11:Cell[] = [];
 		for(let i=0; i<5; i++) {
 			for(let j=0;j<5;j++) {
 				if(i == j) {
@@ -91,9 +88,9 @@ export class GameComponent implements OnInit {
 			id:10,
 			lineCells: lc11
 		}));
-		// Line 12
 		
-		let lc12 = new Array<Cell>();
+		// Line 12
+		let lc12:Cell[] = [];
 		lc12.push(c[4][0]);
 		lc12.push(c[3][1]);
 		lc12.push(c[2][2]);
@@ -161,13 +158,7 @@ export class GameComponent implements OnInit {
 	}
 	
 	isWonComputer () {
-		let compSymbol:string;
-		if(this.playerSymbol === 'CROSS') {
-			compSymbol = 'NOUGHT';
-		} else {
-			compSymbol = 'CROSS';
-		}
-		return this.isWon(compSymbol);
+		return this.isWon(this.compSymbol);
 	}
 	
 	isExistEnableCells() {
@@ -213,7 +204,7 @@ export class GameComponent implements OnInit {
 			if(dangerTarget === null) {
 				let targetPriority = this.getPriorityCell();
 				if(targetPriority === null) {
-					let enabledCells:Cell[] = new Array<Cell>();
+					let enabledCells:Cell[] = [];
 					for(let i=0;i<5;i++) {
 						for(let j=0; j<5; j++) {
 							if(this.cells[i][j].enabled) {
@@ -269,7 +260,6 @@ export class GameComponent implements OnInit {
 	}
 	
 	getPriorityCell() {
-		let target:Cell;
 		let maxPoints = 0;
 		for(let i=0;i<12;i++) {
 			let points = 0;
@@ -301,11 +291,9 @@ export class GameComponent implements OnInit {
 		}
 	}
 	
-	
 	choosePlayerSymbol(symbol:string) {
 		this.playerSymbol = symbol;
 	}
-	
 	
 	startGame() {
 		// Disable choosen btns
@@ -323,6 +311,7 @@ export class GameComponent implements OnInit {
 	}
 	
 	ngOnInit() {
+		this.resetGame();
 	}
 	
 }
